@@ -5,7 +5,9 @@ Yes, the texture are stolen I will be replacing them in the future, but at the m
 If you find any bugs please create an issue ticket, so that I can fix it, or at least try.
 
 # How to run the Game/Prototype/TechDemo
-You need Eclipse to compile and run my Game at the moment. I will change that pretty soon, just haven't had the time yet.
+Option 1: Download the .jar from the release section
+
+Option 2: You need Eclipse to compile my Game at the moment.
 
 1. Open Eclipse
 2. Go to File/Import
