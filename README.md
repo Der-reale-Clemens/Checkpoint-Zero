@@ -19,3 +19,6 @@ The main code is in the core directory, so any programming or whatever you wanna
 In the desktop directory is only the DesktopLaucher. You shouldn't need to change anything here.
 
 To start the game simply run the DesktopLauchner class in the Desktop directory.
+
+# Controlls
+Use the arrow keys to move the cursor and press enter to place a tower.
