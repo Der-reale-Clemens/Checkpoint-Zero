@@ -5,7 +5,7 @@ Yes, the texture are stolen I will be replacing them in the future, but at the m
 If you find any bugs please create an issue ticket, so that I can fix it, or at least try.
 
 # How to run the Game/Prototype/TechDemo
-Option 1: Download the .jar from the release section
+Option 1: Download the .jar from the release section. Link here: https://github.com/Der-reale-Clemens/Checkpoint-Zero/releases
 
 Option 2: You need Eclipse to compile my Game at the moment.
 
