@@ -19,6 +19,16 @@ public class WaveManager {
 		times.add(Waves.Wave1.waveDelay);
 		waves.add(Waves.Wave2.wave);
 		times.add(Waves.Wave2.waveDelay);
+		waves.add(Waves.Wave2.wave);
+		times.add(Waves.Wave2.waveDelay);
+		waves.add(Waves.Wave2.wave);
+		times.add(Waves.Wave2.waveDelay);
+		waves.add(Waves.Wave2.wave);
+		times.add(Waves.Wave2.waveDelay);
+		waves.add(Waves.Wave2.wave);
+		times.add(Waves.Wave2.waveDelay);
+		waves.add(Waves.Wave2.wave);
+		times.add(Waves.Wave2.waveDelay);
 		startPos.x = 64;
 		startPos.y = 0;
 	}
