@@ -22,7 +22,7 @@ public class BulletManager {
 	}
 	
 	public static void addBullet(BulletTypes bulletType, Enemy target, float x, float y) {
-		bullets.add(new Bullet(bulletType, target, x, y));
+		bullets.add(new BulletNormal(bulletType, target, x, y));
 	}
 	
 	public void draw(final Checkpoint game) {
