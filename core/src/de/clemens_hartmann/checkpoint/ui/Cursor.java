@@ -46,7 +46,7 @@ public class Cursor implements  Disposable, Drawable{
 			if(y < HEIGHT - 1)
 				y++;
 		if(Gdx.input.isKeyJustPressed(Input.Keys.ENTER))
-			TowerManager.addTower(TowerTypes.TowerCannon, x, y);
+			TowerManager.addTower(TowerTypes.TowerQuickfire, x, y);
 	}
 	
 	@Override

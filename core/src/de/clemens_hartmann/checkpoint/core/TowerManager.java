@@ -21,7 +21,7 @@ public class TowerManager {
 	}
 	
 	public static void addTower(TowerTypes towerType, int x, int y) {
-		towers.add(new TowerCannon2(towerType, x, y));
+		towers.add(new TowerQuickfire(towerType, x, y));
 	}
 	
 	public void draw(final Checkpoint game) {

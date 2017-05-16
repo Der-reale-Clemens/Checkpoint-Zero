@@ -1,15 +1,17 @@
 package de.clemens_hartmann.checkpoint.core;
 
-public class TowerCannon2 extends Tower {
+public class TowerQuickfire extends Tower {
 
 	private boolean active;
 	private long timeSinceLastBullet = 0;
 	private int bulletsShot = 0;
-	private final int bulletsInBarrage = 3;
-	private final long bulletDelay = 150;
+	private int bulletsInBarrage;
+	private long bulletDelay;
 	
-	public TowerCannon2(TowerTypes towerType, int x, int y) {
+	public TowerQuickfire(TowerTypes towerType, int x, int y) {
 		super(towerType, x, y);
+		this.bulletsInBarrage = towerType.bulletsInBarrage;
+		this.bulletDelay = towerType.delayBetweenBullets;
 	}
 
 	@Override
@@ -43,7 +45,6 @@ public class TowerCannon2 extends Tower {
 		timeSinceLastShot = 0;
 		timeSinceLastBullet = 0;
 		active = true;
-		//BulletManager.addBullet(towerType.bullet, target, getX(), getY());
 	}
 
 }
