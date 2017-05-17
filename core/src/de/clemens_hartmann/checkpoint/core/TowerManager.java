@@ -16,13 +16,10 @@ public class TowerManager {
 		while(iter.hasNext()) {
 			Tower tower = iter.next();
 			tower.update(delta);
-			System.out.println("tower : " + tower.getX());
 		}
-		System.out.println("end iterator");
 	}
 	
 	public static void addTower(TowerTypes towerType, int x, int y) {
-		System.out.println("addTower");
 		if(towerType == TowerTypes.TowerQuickfire)
 			towers.add(new TowerQuickfire(towerType, x, y));
 		if(towerType == TowerTypes.TowerCannon)
