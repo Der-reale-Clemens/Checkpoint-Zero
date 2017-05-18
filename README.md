@@ -23,4 +23,7 @@ In the desktop directory is only the DesktopLaucher. You shouldn't need to chang
 To start the game simply run the DesktopLauchner class in the Desktop directory.
 
 # Controlls
-Use the arrow keys to move the cursor and press enter to place a tower.
+Use the arrow keys to move the cursor and press enter to place a tower. You can switch towers with the number keys.
+1 = Cannon Tower
+2 = Quickfire Tower
+3 = Ice Tower
