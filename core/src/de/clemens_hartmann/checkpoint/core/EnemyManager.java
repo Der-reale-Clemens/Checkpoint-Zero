@@ -25,7 +25,7 @@ public class EnemyManager {
 	}
 	
 	public static void addEnemy(EnemyTypes enemyType, float x, float y) {
-		enemys.add(new Enemy(enemyType, x, y));
+		enemys.add(new EnemyRed(enemyType, x, y));
 	}
 	
 	public void draw(final Checkpoint game) {

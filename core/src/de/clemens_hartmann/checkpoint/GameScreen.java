@@ -56,7 +56,7 @@ public class GameScreen implements Screen {
 		towerManager = new TowerManager();
 		
 		
-		TowerManager.addTower(TowerTypes.TowerCannon, 4,6);
+		TowerManager.addTower(TowerTypes.TowerQuickfire, 4,6);
 	}
 
 	@Override

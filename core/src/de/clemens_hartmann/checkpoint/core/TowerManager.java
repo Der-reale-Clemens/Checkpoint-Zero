@@ -16,12 +16,28 @@ public class TowerManager {
 		while(iter.hasNext()) {
 			Tower tower = iter.next();
 			tower.update(delta);
-			
 		}
 	}
 	
 	public static void addTower(TowerTypes towerType, int x, int y) {
-		towers.add(new TowerCannon(towerType, x, y));
+		if(towerType == TowerTypes.TowerQuickfire)
+			towers.add(new TowerQuickfire(towerType, x, y));
+		if(towerType == TowerTypes.TowerCannon)
+			towers.add(new TowerCannon(towerType, x, y));
+		if(towerType == TowerTypes.TowerIce)
+			towers.add(new TowerIce(towerType, x, y));
+	}
+	
+	public static boolean findTower(int x, int y) {
+		System.out.println("in method");
+		Iterator<Tower> iter = towers.iterator();
+		while(iter.hasNext()) {
+			Tower tower = iter.next();
+			System.out.println(tower.getX() + " : " + x);
+			if(tower.getX() == x && tower.getY() == y)
+				return true;
+		}
+		return false;
 	}
 	
 	public void draw(final Checkpoint game) {

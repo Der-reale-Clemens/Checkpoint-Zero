@@ -1,8 +1,8 @@
 package de.clemens_hartmann.checkpoint.core;
 
-public class TowerCannon extends Tower{
+public class TowerIce extends Tower {
 
-	public TowerCannon(TowerTypes towerType, int x, int y) {
+	public TowerIce(TowerTypes towerType, int x, int y) {
 		super(towerType, x, y);
 	}
 
@@ -25,6 +25,7 @@ public class TowerCannon extends Tower{
 	@Override
 	protected void shoot() {
 		timeSinceLastShot = 0;
-		BulletManager.addBullet(towerType.bullet, target, getX(), getY());
+		BulletManager.addBullet(new BulletIce(towerType.bullet, target, getX(), getY()));
 	}
+
 }

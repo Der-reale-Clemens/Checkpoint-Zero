@@ -9,6 +9,7 @@ import de.clemens_hartmann.checkpoint.Config;
 import de.clemens_hartmann.checkpoint.Disposable;
 import de.clemens_hartmann.checkpoint.Drawable;
 import de.clemens_hartmann.checkpoint.Updateable;
+import de.clemens_hartmann.checkpoint.core.Player;
 import de.clemens_hartmann.checkpoint.core.TowerManager;
 import de.clemens_hartmann.checkpoint.core.TowerTypes;
 
@@ -22,9 +23,6 @@ public class Cursor implements  Disposable, Drawable{
 	private int x;
 	private int y;
 	private Texture sprite;
-	//private final float HEIGTH = 96.0f;
-	//private final float WIDTH = 96.0f;
-	
 	
 	public Cursor(int x, int y) {
 		this.x = x;
@@ -45,8 +43,14 @@ public class Cursor implements  Disposable, Drawable{
 		if(Gdx.input.isKeyJustPressed(Input.Keys.DOWN))
 			if(y < HEIGHT - 1)
 				y++;
-		if(Gdx.input.isKeyJustPressed(Input.Keys.ENTER))
-			TowerManager.addTower(TowerTypes.TowerCannon, x, y);
+		if(Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) 
+			Player.addTower(x, y);
+		if(Gdx.input.isKeyJustPressed(Input.Keys.NUM_1))
+			Player.setSelectedTower(0);
+		if(Gdx.input.isKeyJustPressed(Input.Keys.NUM_2))
+			Player.setSelectedTower(1);
+		if(Gdx.input.isKeyJustPressed(Input.Keys.NUM_3))
+			Player.setSelectedTower(2);
 	}
 	
 	@Override

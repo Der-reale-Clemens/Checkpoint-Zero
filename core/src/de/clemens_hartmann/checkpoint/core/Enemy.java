@@ -3,7 +3,6 @@ package de.clemens_hartmann.checkpoint.core;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Circle;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 import de.clemens_hartmann.checkpoint.Checkpoint;
@@ -12,18 +11,19 @@ import de.clemens_hartmann.checkpoint.Disposable;
 import de.clemens_hartmann.checkpoint.Drawable;
 import de.clemens_hartmann.checkpoint.Updateable;
 
-public class Enemy implements Updateable, Disposable, Drawable {
+public abstract class Enemy implements Updateable, Drawable, Disposable{
 	private final int TEX_SIZE = Config.TEX_SIZE;
 	
-	private EnemyTypes enemyType;
+	protected EnemyTypes enemyType;
 	private Texture sprite;
 	private Circle hitbox;
 	private Vector2 startPos;
-	private float x;
-	private float y;
-	private int health;
+	protected float x;
+	protected float y;
+	protected int health;
 	private int direction;
-	private boolean isAlive = true;
+	protected boolean isAlive = true;
+	protected float speedMultiplier;
 	
 	public Enemy(EnemyTypes enemyType, float x, float y) {
 		this.enemyType = enemyType;
@@ -33,39 +33,38 @@ public class Enemy implements Updateable, Disposable, Drawable {
 		this.x = x;
 		this.y = y;
 		hitbox = new Circle(this.x,this.y,TEX_SIZE);
+		this.speedMultiplier = 1.0f;
 	}
 	
-	@Override
-	public void update(float delta) {
-		if(health <= 0)
-			isAlive = false;
-		
-		try {
-		direction = findDirection();
-
-		switch(direction) {
-		case 0:
-			x += enemyType.speed * (delta/100);
-			break;
-		case 1:
-			x -= enemyType.speed * (delta/100);
-			break;
-		case 2:
-			y += enemyType.speed * (delta/100);
-			break;
-		case 3:
-			y -= enemyType.speed * (delta/100);
-			break;		
-		}
-		}
-		catch(Exception e) {
-			isAlive = false;
-		}
-		hitbox.setPosition(x, y);
-	}
-
+	public abstract void update(float delta);
+	
 	public void damage(int damage) {
 		health -= damage;
+	}
+	
+	protected void move(float delta) {
+		try {
+			direction = findDirection();
+
+			switch(direction) {
+				case 0:
+					x += enemyType.speed * (delta/100) * speedMultiplier;
+					break;
+				case 1:
+					x -= enemyType.speed * (delta/100) * speedMultiplier;
+					break;
+				case 2:
+					y += enemyType.speed * (delta/100) * speedMultiplier;
+					break;
+				case 3:
+					y -= enemyType.speed * (delta/100) * speedMultiplier;
+					break;		
+				}
+			}
+			catch(Exception e) {
+				isAlive = false;
+			}
+			hitbox.setPosition(x, y);
 	}
 	
 	private int findDirection() {
@@ -122,30 +121,33 @@ public class Enemy implements Updateable, Disposable, Drawable {
 		return true;
 	}
 	
-	@Override
-	public void draw(Checkpoint game) {
-		game.batch.draw(sprite, x, y);
-	}
-	
-	public Texture getTexture() {
-		return sprite;
-	}
-	public float getX() {
-		return x;
-	}
-	public float getY() {
-		return y;
-	}
 	public Circle getHitbox() {
 		return hitbox;
 	}
+	
 	public boolean isAlive() {
 		return isAlive;
+	}
+	
+	public float getX() {
+		return x;
+	}
+	
+	public float getY() {
+		return y;
+	}
+	
+	public void setSpeedMultiplier(float speedMultiplier) {
+		this.speedMultiplier = speedMultiplier;
+	}
+	
+	@Override
+	public void draw(final Checkpoint game) {
+		game.batch.draw(sprite, x, y);
 	}
 	
 	@Override
 	public void dispose() {
 		sprite.dispose();
 	}
-
 }

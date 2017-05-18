@@ -15,10 +15,20 @@ public class WaveManager {
 	private Vector2 startPos = new Vector2();
 	
 	public WaveManager() {
-		waves.add(Waves.Wave1.wave);
+		/*waves.add(Waves.Wave1.wave);
 		times.add(Waves.Wave1.waveDelay);
 		waves.add(Waves.Wave2.wave);
 		times.add(Waves.Wave2.waveDelay);
+		waves.add(Waves.Wave2.wave);
+		times.add(Waves.Wave2.waveDelay);
+		waves.add(Waves.Wave2.wave);
+		times.add(Waves.Wave2.waveDelay);
+		waves.add(Waves.Wave2.wave);
+		times.add(Waves.Wave2.waveDelay);
+		waves.add(Waves.Wave2.wave);
+		times.add(Waves.Wave2.waveDelay);*/
+		waves.add(Waves.Wave3.wave);
+		times.add(Waves.Wave3.waveDelay);
 		startPos.x = 64;
 		startPos.y = 0;
 	}
@@ -31,7 +41,7 @@ public class WaveManager {
 		if(!isWaveLeft())
 			return;
 		if(timeSinceLastWave > times.get(wavePos)) {
-			wavePos++;
+			//wavePos++;
 			timeSinceLastWave = 0;
 			amountSpawned = 0;
 			timeSinceLastSpawn = 0;
