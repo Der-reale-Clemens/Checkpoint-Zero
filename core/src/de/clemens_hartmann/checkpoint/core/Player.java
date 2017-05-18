@@ -13,14 +13,20 @@ public class Player {
 	}
 	
 	public static void addTower(int x, int y) {
-		/*if(Map.getTile(x/TEX_SIZE, y/TEX_SIZE).getTileType().walkable == true  || TowerManager.findTower(x, y))
-			return;*/
+		if(!Map.getTile(x, y).getTileType().buildable)
+			return;
+		if( TowerManager.findTower(x*TEX_SIZE, y*TEX_SIZE))
+			return;
+		
 		switch(selectedTower) {
 		case 0:
 			TowerManager.addTower(TowerTypes.TowerCannon, x, y);
 			break;
 		case 1: 
 			TowerManager.addTower(TowerTypes.TowerQuickfire, x, y);
+			break;
+		case 2:
+			TowerManager.addTower(TowerTypes.TowerIce, x, y);
 			break;
 		}
 	}

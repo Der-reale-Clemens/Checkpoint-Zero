@@ -23,6 +23,7 @@ public abstract class Enemy implements Updateable, Drawable, Disposable{
 	protected int health;
 	private int direction;
 	protected boolean isAlive = true;
+	protected float speedMultiplier;
 	
 	public Enemy(EnemyTypes enemyType, float x, float y) {
 		this.enemyType = enemyType;
@@ -32,6 +33,7 @@ public abstract class Enemy implements Updateable, Drawable, Disposable{
 		this.x = x;
 		this.y = y;
 		hitbox = new Circle(this.x,this.y,TEX_SIZE);
+		this.speedMultiplier = 1.0f;
 	}
 	
 	public abstract void update(float delta);
@@ -46,16 +48,16 @@ public abstract class Enemy implements Updateable, Drawable, Disposable{
 
 			switch(direction) {
 				case 0:
-					x += enemyType.speed * (delta/100);
+					x += enemyType.speed * (delta/100) * speedMultiplier;
 					break;
 				case 1:
-					x -= enemyType.speed * (delta/100);
+					x -= enemyType.speed * (delta/100) * speedMultiplier;
 					break;
 				case 2:
-					y += enemyType.speed * (delta/100);
+					y += enemyType.speed * (delta/100) * speedMultiplier;
 					break;
 				case 3:
-					y -= enemyType.speed * (delta/100);
+					y -= enemyType.speed * (delta/100) * speedMultiplier;
 					break;		
 				}
 			}
@@ -133,6 +135,10 @@ public abstract class Enemy implements Updateable, Drawable, Disposable{
 	
 	public float getY() {
 		return y;
+	}
+	
+	public void setSpeedMultiplier(float speedMultiplier) {
+		this.speedMultiplier = speedMultiplier;
 	}
 	
 	@Override

@@ -21,8 +21,13 @@ public class BulletManager {
 		}
 	}
 	
+	@Deprecated
 	public static void addBullet(BulletTypes bulletType, Enemy target, float x, float y) {
 		bullets.add(new BulletNormal(bulletType, target, x, y));
+	}
+	
+	public static void addBullet(Bullet bullet) {
+		bullets.add(bullet);
 	}
 	
 	public void draw(final Checkpoint game) {
