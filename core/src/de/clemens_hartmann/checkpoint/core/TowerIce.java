@@ -6,7 +6,7 @@ public class TowerIce extends Tower {
 		super(towerType, x, y);
 	}
 
-	@Override
+	/*@Override
 	public void update(float delta) {
 		timeSinceLastShot += delta;
 		
@@ -20,7 +20,7 @@ public class TowerIce extends Tower {
 		if(target != null && !target.isAlive()) {
 			hasTarget = false;
 		}
-	}
+	}*/
 
 	@Override
 	protected void shoot() {

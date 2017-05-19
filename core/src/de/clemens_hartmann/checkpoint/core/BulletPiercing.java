@@ -2,12 +2,17 @@ package de.clemens_hartmann.checkpoint.core;
 
 import java.util.Iterator;
 
+import de.clemens_hartmann.checkpoint.Checkpoint;
 import de.clemens_hartmann.checkpoint.Config;
 
-public class BulletNormal extends Bullet {
+public class BulletPiercing extends Bullet {
 
-	public BulletNormal(BulletTypes bulletType, Enemy target, float x, float y) {
+	private float angle;
+	
+	public BulletPiercing(BulletTypes bulletType, Enemy target, float x, float y) {
 		super(bulletType, target, x, y);
+		double tempAngle = Math.atan2(target.getY() - y, target.getX() - x);
+		angle = (float) Math.toDegrees(tempAngle) - 90;
 	}
 
 	@Override
@@ -21,11 +26,15 @@ public class BulletNormal extends Bullet {
 			Enemy enemy = iter.next();
 			if(hitbox.overlaps(enemy.getHitbox())) {
 				enemy.damage(bulletType.damage);
-				isAlive = false;
 				return;
 			}
 		}
 		hitbox.setPosition(x, y);
 	}
-
+	
+	@Override
+	public void draw(final Checkpoint game) {
+		game.batch.draw(getTexture(), x, y, TEX_SIZE/2, TEX_SIZE/2, TEX_SIZE, TEX_SIZE, 1, 1,
+				angle, 0, 0, TEX_SIZE, TEX_SIZE, false, false);
+	}
 }

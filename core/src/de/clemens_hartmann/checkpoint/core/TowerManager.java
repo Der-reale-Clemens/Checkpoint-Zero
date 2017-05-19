@@ -19,6 +19,7 @@ public class TowerManager {
 		}
 	}
 	
+	@Deprecated
 	public static void addTower(TowerTypes towerType, int x, int y) {
 		if(towerType == TowerTypes.TowerQuickfire)
 			towers.add(new TowerQuickfire(towerType, x, y));
@@ -28,16 +29,28 @@ public class TowerManager {
 			towers.add(new TowerIce(towerType, x, y));
 	}
 	
+	public static void addTower(Tower tower) {
+		towers.add(tower);
+	}
+	
 	public static boolean findTower(int x, int y) {
-		System.out.println("in method");
 		Iterator<Tower> iter = towers.iterator();
 		while(iter.hasNext()) {
 			Tower tower = iter.next();
-			System.out.println(tower.getX() + " : " + x);
 			if(tower.getX() == x && tower.getY() == y)
 				return true;
 		}
 		return false;
+	}
+	
+	public static void removeTower(int x, int y) {
+		Iterator<Tower> iter = towers.iterator();
+		while(iter.hasNext()) {
+			Tower tower = iter.next();
+			if(tower.getX() == x && tower.getY() == y)
+				tower.dispose();
+				iter.remove();
+		}
 	}
 	
 	public void draw(final Checkpoint game) {

@@ -28,6 +28,23 @@ public class EnemyManager {
 		enemys.add(new EnemyRed(enemyType, x, y));
 	}
 	
+	public static List<Enemy> findEnemys(float x, float y, double range) {
+		List<Enemy> enemysInRange = new LinkedList<Enemy>();
+		Iterator<Enemy> iter = enemys.iterator();
+		while(iter.hasNext()) {
+			Enemy enemy = iter.next();
+			if(findDistance(enemy, x, y) < range)
+				enemysInRange.add(enemy);
+		}
+		return enemysInRange;
+	}
+	
+	private static float findDistance(Enemy enemy, float x, float y) {
+		float xDistance = Math.abs(enemy.getX() - x);
+		float yDistance = Math.abs(enemy.getY() - y);
+		return xDistance + yDistance;
+	}
+	
 	public void draw(final Checkpoint game) {
 		game.batch.begin();
 		for(Enemy enemy : enemys) {

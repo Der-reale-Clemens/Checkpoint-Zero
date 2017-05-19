@@ -2,8 +2,12 @@ package de.clemens_hartmann.checkpoint.core;
 
 public enum BulletTypes {
 	
-	Bullet1("Bullet.png", 50, 5),
-	IceBullet("IceBullet.png", 50, 5, 0.5f);
+	BulletNormal("BulletNormal.png", 50, 5),
+	BulletIce("BulletIce.png", 50, 5, 0.5f),
+	BulletArtillery("BulletArtillery.png", 50, 15, 100d),
+	BulletPiercing("BulletPiercing.png", 70, 1);
+	
+	// Artillery 
 	
 	int damage;
 	double speed;
@@ -27,10 +31,10 @@ public enum BulletTypes {
 	}
 	
 	//Constructor for Artillery Bullets
-	/*BulletTypes(String textureName, double speed, int damage, double explosionRange) {
+	BulletTypes(String textureName, double speed, int damage, double explosionRange) {
 		this.damage = damage;
 		this.explosionRange = explosionRange;
 		this.textureName = textureName;
 		this.speed = speed;
-	}*/
+	}
 }

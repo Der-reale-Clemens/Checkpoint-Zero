@@ -30,7 +30,20 @@ public abstract class Tower implements Disposable, Updateable, Drawable{
 		this.spriteGun = new Texture(Gdx.files.internal(towerType.textureNameGun));
 	}
 	
-	public abstract void update(float delta);
+	public void update(float delta) {
+		timeSinceLastShot += delta;
+		
+		if(!hasTarget || findDistance(target)  > towerType.range) {
+			target = findTarget();
+		} else {
+			setAngle(calculateAngle());
+			if(timeSinceLastShot > towerType.reloadTime) 
+				shoot();
+		}
+		if(target != null && !target.isAlive()) {
+			hasTarget = false;
+		}
+	}
 	
 	protected Enemy findTarget() {
 		Enemy closest = null;
