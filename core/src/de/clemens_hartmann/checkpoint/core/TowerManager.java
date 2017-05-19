@@ -19,6 +19,7 @@ public class TowerManager {
 		}
 	}
 	
+	@Deprecated
 	public static void addTower(TowerTypes towerType, int x, int y) {
 		if(towerType == TowerTypes.TowerQuickfire)
 			towers.add(new TowerQuickfire(towerType, x, y));
@@ -26,6 +27,10 @@ public class TowerManager {
 			towers.add(new TowerCannon(towerType, x, y));
 		if(towerType == TowerTypes.TowerIce)
 			towers.add(new TowerIce(towerType, x, y));
+	}
+	
+	public static void addTower(Tower tower) {
+		towers.add(tower);
 	}
 	
 	public static boolean findTower(int x, int y) {

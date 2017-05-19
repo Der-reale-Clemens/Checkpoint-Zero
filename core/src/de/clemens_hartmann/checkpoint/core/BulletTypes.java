@@ -2,7 +2,7 @@ package de.clemens_hartmann.checkpoint.core;
 
 public enum BulletTypes {
 	
-	Bullet1("Bullet.png", 50, 5),
+	Bullet1("BulletNormal.png", 50, 5),
 	IceBullet("IceBullet.png", 50, 5, 0.5f);
 	
 	int damage;
