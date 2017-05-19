@@ -1,9 +1,10 @@
 package de.clemens_hartmann.checkpoint.core;
 
 public enum TowerTypes {
-	TowerCannon("cannonBase.png", "cannonGun.png", BulletTypes.Bullet1, 500, 2000, 100),
+	TowerCannon("turret-base.png", "turret-5-1.png", BulletTypes.Bullet1, 500, 2000, 100),
 	TowerQuickfire("turret-base.png","turret-4-1.png", BulletTypes.Bullet1, 300, 2000, 3, 150, 150),
-	TowerIce("turret-base.png", "turret-1-1.png", BulletTypes.IceBullet, 300, 2000, 150);
+	TowerIce("turret-base.png", "turret-1-1.png", BulletTypes.IceBullet, 300, 2000, 150),
+	TowerArtilery("turret-base.png", "turret-2-1.png", BulletTypes.ArtilleryBullet, 500, 1000, 100);
 	
 	BulletTypes bullet;
 	double range;

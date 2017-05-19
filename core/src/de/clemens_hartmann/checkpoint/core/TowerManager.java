@@ -34,11 +34,9 @@ public class TowerManager {
 	}
 	
 	public static boolean findTower(int x, int y) {
-		System.out.println("in method");
 		Iterator<Tower> iter = towers.iterator();
 		while(iter.hasNext()) {
 			Tower tower = iter.next();
-			System.out.println(tower.getX() + " : " + x);
 			if(tower.getX() == x && tower.getY() == y)
 				return true;
 		}

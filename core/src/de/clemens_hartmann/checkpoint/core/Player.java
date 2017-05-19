@@ -9,7 +9,7 @@ public class Player {
 	private static int selectedTower;
 	
 	public Player() {
-		;
+
 	}
 	
 	public static void addTower(int x, int y) {
@@ -25,6 +25,9 @@ public class Player {
 			break;
 		case 2:
 			TowerManager.addTower(new TowerIce(TowerTypes.TowerIce, x, y));
+			break;
+		case 3:
+			TowerManager.addTower(new TowerArtillery(TowerTypes.TowerArtilery, x, y));
 			break;
 		}
 	}

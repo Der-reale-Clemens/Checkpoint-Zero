@@ -51,6 +51,8 @@ public class Cursor implements  Disposable, Drawable{
 			Player.setSelectedTower(1);
 		if(Gdx.input.isKeyJustPressed(Input.Keys.NUM_3))
 			Player.setSelectedTower(2);
+		if(Gdx.input.isKeyJustPressed(Input.Keys.NUM_4))
+			Player.setSelectedTower(3);
 	}
 	
 	@Override
