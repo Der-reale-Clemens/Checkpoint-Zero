@@ -43,6 +43,16 @@ public class TowerManager {
 		return false;
 	}
 	
+	public static void removeTower(int x, int y) {
+		Iterator<Tower> iter = towers.iterator();
+		while(iter.hasNext()) {
+			Tower tower = iter.next();
+			if(tower.getX() == x && tower.getY() == y)
+				tower.dispose();
+				iter.remove();
+		}
+	}
+	
 	public void draw(final Checkpoint game) {
 		game.batch.begin();
 		for(Tower tower : towers) {

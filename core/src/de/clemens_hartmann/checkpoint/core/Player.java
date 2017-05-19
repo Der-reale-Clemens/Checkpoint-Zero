@@ -27,9 +27,16 @@ public class Player {
 			TowerManager.addTower(new TowerIce(TowerTypes.TowerIce, x, y));
 			break;
 		case 3:
-			TowerManager.addTower(new TowerArtillery(TowerTypes.TowerArtilery, x, y));
+			TowerManager.addTower(new TowerArtillery(TowerTypes.TowerArtillery, x, y));
+			break;
+		case 4:
+			TowerManager.addTower(new TowerPiercing(TowerTypes.TowerPiercing, x, y));
 			break;
 		}
+	}
+	
+	public static void removeTower(int x, int y) {
+		TowerManager.removeTower(x*TEX_SIZE, y*TEX_SIZE);
 	}
 	
 	public static void setSelectedTower(int pselectedTower) {

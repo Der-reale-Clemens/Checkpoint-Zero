@@ -20,7 +20,7 @@ public class BulletNormal extends Bullet {
 		while(iter.hasNext()) {
 			Enemy enemy = iter.next();
 			if(hitbox.overlaps(enemy.getHitbox())) {
-				enemy.damage((int)bulletType.damage);
+				enemy.damage(bulletType.damage);
 				isAlive = false;
 				return;
 			}

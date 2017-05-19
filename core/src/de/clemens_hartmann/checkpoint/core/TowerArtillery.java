@@ -25,7 +25,7 @@ public class TowerArtillery extends Tower {
 	@Override
 	protected void shoot() {
 		timeSinceLastShot = 0;
-		BulletManager.addBullet(new BulletArtillery(BulletTypes.ArtilleryBullet, target, getX(), getY()));
+		BulletManager.addBullet(new BulletArtillery(BulletTypes.BulletArtillery, target, getX(), getY()));
 	}
 
 }

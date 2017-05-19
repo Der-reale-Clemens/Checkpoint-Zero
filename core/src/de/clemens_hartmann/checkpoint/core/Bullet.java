@@ -12,7 +12,7 @@ import de.clemens_hartmann.checkpoint.Drawable;
 import de.clemens_hartmann.checkpoint.Updateable;
 
 public abstract class Bullet implements Updateable, Drawable, Disposable{
-	private final int TEX_SIZE = Config.BULLET_SIZE;
+	protected final int TEX_SIZE = Config.BULLET_SIZE;
 	
 	protected BulletTypes bulletType;
 	private Texture sprite;
@@ -49,6 +49,10 @@ public abstract class Bullet implements Updateable, Drawable, Disposable{
 	
 	public boolean isAlive() {
 		return isAlive;
+	}
+	
+	protected Texture getTexture() {
+		return sprite;
 	}
 	
 	@Override

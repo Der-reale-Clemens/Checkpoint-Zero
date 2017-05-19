@@ -2,9 +2,10 @@ package de.clemens_hartmann.checkpoint.core;
 
 public enum BulletTypes {
 	
-	Bullet1("BulletNormal.png", 50, 5),
-	IceBullet("BulletIce.png", 50, 5, 0.5f),
-	ArtilleryBullet("BulletArtillery.png", 50, 15, 100d);
+	BulletNormal("BulletNormal.png", 50, 5),
+	BulletIce("BulletIce.png", 50, 5, 0.5f),
+	BulletArtillery("BulletArtillery.png", 50, 15, 100d),
+	BulletPiercing("BulletPiercing.png", 70, 1);
 	
 	// Artillery 
 	

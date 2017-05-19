@@ -1,16 +1,15 @@
 package de.clemens_hartmann.checkpoint.core;
 
 import java.util.Iterator;
-import java.util.List;
 
 import de.clemens_hartmann.checkpoint.Checkpoint;
 import de.clemens_hartmann.checkpoint.Config;
 
-public class BulletArtillery extends Bullet {
+public class BulletPiercing extends Bullet {
 
 	private float angle;
 	
-	public BulletArtillery(BulletTypes bulletType, Enemy target, float x, float y) {
+	public BulletPiercing(BulletTypes bulletType, Enemy target, float x, float y) {
 		super(bulletType, target, x, y);
 		double tempAngle = Math.atan2(target.getY() - y, target.getX() - x);
 		angle = (float) Math.toDegrees(tempAngle) - 90;
@@ -26,13 +25,7 @@ public class BulletArtillery extends Bullet {
 		while(iter.hasNext()) {
 			Enemy enemy = iter.next();
 			if(hitbox.overlaps(enemy.getHitbox())) {
-				List<Enemy> enemysInRange = EnemyManager.findEnemys(x, y, bulletType.explosionRange);
-				Iterator<Enemy> inRange = enemysInRange.iterator();
-				while(inRange.hasNext()) {
-					Enemy e = inRange.next();
-					e.damage(bulletType.damage);
-				}
-				isAlive = false;
+				enemy.damage(bulletType.damage);
 				return;
 			}
 		}
