@@ -47,9 +47,11 @@ public class TowerManager {
 		Iterator<Tower> iter = towers.iterator();
 		while(iter.hasNext()) {
 			Tower tower = iter.next();
-			if(tower.getX() == x && tower.getY() == y)
+			if(tower.getX() == x && tower.getY() == y){
 				tower.dispose();
 				iter.remove();
+				return;
+			}
 		}
 	}
 	
